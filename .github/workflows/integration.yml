@@ -25,26 +25,26 @@ jobs:
             ~/.cargo/registry
             ~/.cargo/git
             target/
-          key: ${{ runner.os }}-cargo-${{ hashFiles('Cargo.lock') }}
+          key: ${{ runner.os }}-cargo-${{ hashFiles('testes/Cargo.lock') }}
 
       - name: Compilar tudo
         run: |
-            cd testes
-            cargo build --all
+          cd testes
+          cargo build --all
 
       - name: Desafio 1 — Open-Meteo
         run: |
-            cd testes
-            cargo run --bin open_meteo
+          cd testes
+          cargo test --test open_meteo -- --nocapture
 
       - name: Desafio 2 — PokeAPI
         run: |
           cd testes
-          cargo run --bin pokeapi
+          cargo test --test pokeapi -- --nocapture
 
       - name: Desafio Avançado — GitHub API
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN_PESSOAL }}
         run: |
           cd testes
-          cargo run --bin github_api
+          cargo test --test github_api -- --nocapture
