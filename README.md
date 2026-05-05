@@ -6,6 +6,12 @@ Implementa os três desafios práticos do curso usando Rust com `reqwest` e `car
 
 ---
 
+## 📝 Auditoria da IA
+
+* **AI Assistance:** A lógica, a arquitetura e o desenvolvimento desta biblioteca foram construídos com a assistência de **Claude.ai** (Anthropic). Eles foram usados como ferramentas avançadas de programação em par para garantir um código Rust de alta qualidade, seguro e idiomático.
+
+---
+
 ## Estrutura do Projeto
 
 ```
