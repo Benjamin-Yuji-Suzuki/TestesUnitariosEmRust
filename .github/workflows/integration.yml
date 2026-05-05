@@ -44,7 +44,7 @@ jobs:
 
       - name: Desafio Avançado — GitHub API
         env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN_PESSOAL }}
+          GH_TOKEN_PESSOAL: ${{ secrets.GH_TOKEN_PESSOAL }}
         run: |
           cd testes
           cargo test --test github_api -- --nocapture
