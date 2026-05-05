@@ -6,3 +6,15 @@ edition = "2021"
 [dependencies]
 reqwest = { version = "0.12", features = ["blocking", "json"] }
 serde_json = "1"
+
+[[test]]
+name = "open_meteo"
+path = "tests/open_meteo.rs"
+
+[[test]]
+name = "pokeapi"
+path = "tests/pokeapi.rs"
+
+[[test]]
+name = "github_api"
+path = "tests/github_api.rs"
