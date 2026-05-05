@@ -1,0 +1,42 @@
+name: Testes de Integração
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  testes:
+    name: Rodar testes de integração
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout do repositório
+        uses: actions/checkout@v4
+
+      - name: Instalar Rust
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Cache de dependências
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cargo/registry
+            ~/.cargo/git
+            target/
+          key: ${{ runner.os }}-cargo-${{ hashFiles('Cargo.lock') }}
+
+      - name: Compilar tudo
+        run: cargo build --all
+
+      - name: Desafio 1 — Open-Meteo
+        run: cargo run --bin open_meteo
+
+      - name: Desafio 2 — PokeAPI
+        run: cargo run --bin pokeapi
+
+      - name: Desafio Avançado — GitHub API
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN_PESSOAL }}
+        run: cargo run --bin github_api
