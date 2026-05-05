@@ -9,12 +9,12 @@ serde_json = "1"
 
 [[test]]
 name = "open_meteo"
-path = "tests/open_meteo.rs"
+path = "src/open_meteo.rs"
 
 [[test]]
 name = "pokeapi"
-path = "tests/pokeapi.rs"
+path = "src/pokeapi.rs"
 
 [[test]]
 name = "github_api"
-path = "tests/github_api.rs"
+path = "src/github_api.rs"
